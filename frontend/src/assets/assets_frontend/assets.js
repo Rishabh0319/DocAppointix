@@ -37,7 +37,7 @@ import Gynecologist from './Gynecologist.svg'
 import Neurologist from './Neurologist.svg'
 import Pediatricians from './Pediatricians.svg'
 import DA_logo from "./DA-logo.svg";
-import DA_Header from './DA_header.png';
+import DA_Header from './DA_header1.png';
 
 export const assets = {
     appointment_img,

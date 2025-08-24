@@ -20,7 +20,7 @@ const Header = () => {
 
             {/* right section */}
             <section className='md:w-1/2 relative'>
-                <img className='w-full md:absolute bottom-0 h-auto rounded-lg' src={assets.DA_Header} alt="header image" />
+                <img className='w-full md:absolute bottom-30 h-auto rounded-lg' src={assets.DA_Header} alt="header image" />
             </section>
 
         </div>
