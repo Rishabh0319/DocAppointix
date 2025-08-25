@@ -33,7 +33,11 @@ const MyProfilepage = () => {
                 <p className='text-neutral-500 underline mt-3'>CONTACT INFORMATION</p>
                 <div className='grid grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-neutral-700'>
                     <p className='font-medium'>Email id:</p>
-                    <p className='text-green-500'>{userData.email}</p>
+                    {
+                        isEdit
+                            ? <input className='bg-gray-100 max-w-52' type='text' value={userData.email} onChange={e => setUserData(prev => ({ ...prev, email: e.target.value }))} />
+                            : <p className='text-green-500'>{userData.email}</p>
+                    }
                     <p className='font-medium'>Phone:</p>
                     {
                         isEdit ?
