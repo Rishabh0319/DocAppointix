@@ -5,6 +5,10 @@
     font-family: Outfit;
 }
 
+::-webkit-scrollbar{
+    @apply hidden;
+}
+
 @theme {
     --color-primary: #4caf50
 }
