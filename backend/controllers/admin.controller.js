@@ -4,6 +4,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import doctorModel from '../models/doctor.model.js'
 import jwt from 'jsonwebtoken';
 
+// API for Add Doctor into DB
 const addDoctor = async (req, res) => {
     try {
         const {
@@ -77,7 +78,7 @@ const addDoctor = async (req, res) => {
 const loginAdmin = async (req, res) => {
     try {
         const { email, password } = req.body;
-        
+
 
         if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
             const token = jwt.sign(email + password, process.env.JWT_SECRET);
@@ -87,11 +88,24 @@ const loginAdmin = async (req, res) => {
         }
 
     } catch (error) {
+        console.error(error);
+        return res.json({ success: false, message: error.message });
+    }
+}
+
+// API to get all doctors list for admin panel
+const getAllDoctors = async (req, res) => {
+    try {
+        const doctors = await doctorModel.find({}).select('-password');
+        return res.json({ success: true, doctors })
+    } catch (error) {
+        console.error(error);
         return res.json({ success: false, message: error.message });
     }
 }
 
 export {
     addDoctor,
-    loginAdmin
+    loginAdmin,
+    getAllDoctors
 };
